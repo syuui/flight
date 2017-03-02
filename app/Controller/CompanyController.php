@@ -82,12 +82,11 @@ class CompanyController extends AppController {
 					$_POST['data']['Company']['cname']
 				));
 				$flyTo = '';
-				$this->set('Countries', $this->Country->countryForList());
 			}
 			$this->set(compact('flyTo'));
-			$this->set('Countries', $this->Country->countryForList());
 		}
 
+		$this->getListForPullDown();
 		$this->Message->saveLog('IC0002');
 	}
 
@@ -104,22 +103,26 @@ class CompanyController extends AppController {
 
 		$this->Message->saveLog('IC0002');
 	}
+	
 	public function edit($id) {
 		$this->Message->saveLog('IC0001');
 
 		if (isset ($id)) {
-			$this->set('company', $this->Company->findById($id));
-			$this->set('Countries', $this->Country->countryForList());
+			$this->set('Company', $this->Company->findById($id));
 		} else {
 			/**
 			 * TODO: 例外处理
 			 */
 
 		}
-
+		$this->getListForPullDown();
 		$this->Message->saveLog('IC0002');
 	}
 
+	private function getListForPullDown() {
+		$this->set('Country', $this->Country->countryForList() );
+	}
+	
 	public function save() {
 		$this->Message->saveLog('IC0001');
 		$this->view = ('edit');

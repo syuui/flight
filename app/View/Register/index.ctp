@@ -63,7 +63,7 @@ foreach ($acs as $ln) {
 	$this->Form->button('删除', array (
 		'class' => 'u-btn',
 		'type' => 'button',
-		'onclick' => "if(confirm('真的删除此机场吗？'))location.href='/Register/del/" . $ln['Register']['id'] . "'"
+		'onclick' => "if(confirm('真的删除此注册号吗？'))location.href='/Register/del/" . $ln['Register']['id'] . "'"
 	))));
 }
 

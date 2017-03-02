@@ -12,9 +12,6 @@ endif;
 
 App :: uses('Debugger', 'Utility');
 
-if (!isset ($Countries))
-	$Countries = array ();
-
 echo $this->Form->create("", array (
 	"type" => "POST",
 	"onsubmit" => "",
@@ -37,7 +34,7 @@ echo $this->Form->inputs(array (
 		'label' => '国家',
 		'type' => 'select',
 		'multiple' => false,
-		'options' => $Countries,
+		'options' => $Country,
 		'selected' => 'CN',
 		'class' => 'u-pld'
 	),

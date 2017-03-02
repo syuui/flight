@@ -76,12 +76,12 @@ class RegisterController extends AppController {
 		if (isset ($_POST['_method'], $_POST['data'])) {
 			if ($this->Register->save($_POST['data'])) {
 				$this->Message->saveLog('IC0101', array (
-					$_POST['data']['Register']['cname']
+					$_POST['data']['Register']['register_no']
 				));
 				$flyTo = '/Register';
 			} else {
 				$this->Message->saveLog('IC0104', array (
-					$_POST['data']['Register']['cname']
+					$_POST['data']['Register']['register_no']
 				));
 				$flyTo = '';
 			}

@@ -30,8 +30,28 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class Country extends Model {
+	
+	/**
+	 * 类名
+	 *
+	 * @var string
+	 */
 	var $name='Country';
+	
+	/**
+	 * 所使用的数据库表名
+	 *
+	 * @var string
+	 */
+	var $useTable = 'countries';
 
+	/**
+	 * 下拉列表数据源
+	 *
+	 * 为下拉列表而取得国家数据。所有数据以id=>cname格式存在数组中并返回
+	 *
+	 * @return array 国家列表
+	 */
 	public function countryForList() {
 		$cs = $this->find('all');
 		$cl = array();

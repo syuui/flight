@@ -44,7 +44,9 @@ echo $this->Form->inputs(array (
 	'Register.register_date' => array (
 		'label' => '注册日期',
 		'class' => 'u-dtm',
-		'dateFormat' => 'YMD'
+		'dateFormat' => 'Y-M-D',
+		'minYear' => '1990',
+		'maxYear' => date('Y')
 	)
 ), null, array (
 	'div' => null,

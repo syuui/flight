@@ -28,7 +28,7 @@ echo $this->Html->tableHeaders(array (
 foreach ($acs as $ln) {
 	echo $this->Html->tableCells(array (
 		$ln['Flight']['flight_name'],
-		$ln['D_Terminal']['cname'],
+		$ln['D_Terminal']['cname'],		
 		$ln['Flight']['departure_time'],
 		$ln['A_Terminal']['cname'],
 		$ln['Flight']['arrival_time'],
@@ -45,7 +45,7 @@ foreach ($acs as $ln) {
 	$this->Form->button('删除', array (
 		'class' => 'u-btn',
 		'type' => 'button',
-		'onclick' => "if(confirm('真的删除此航空公司吗？'))location.href='/Flight/del/" . $ln['Flight']['id'] . "'"
+		'onclick' => "if(confirm('真的删除此航班吗？'))location.href='/Flight/del/" . $ln['Flight']['id'] . "'"
 	))));
 }
 

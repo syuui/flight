@@ -80,6 +80,7 @@ class Flight extends Model {
 	    'flight_name' => 'CONCAT(Company.iata_code, Flight.flight_number)',
 	    'departure_date' => 'DATE_FORMAT(departure_time, "%Y-%m-%d")'
 	);
+	
 	/**
 	 * 字段验证规则
 	 *
@@ -115,8 +116,8 @@ class Flight extends Model {
 			)
 		),
 		'departure_terminal_gate' => array (
-			'rule' => '/^[0-9]{1,3}$/',
-			'message' => 'departure_terminal_gate只能由数字组成，且长度小于三位。',
+			'rule' => '/^[A-Z0-9]{1,3}$/',
+			'message' => 'departure_terminal_gate只能由英文字母或数字组成，且长度小于三位。',
 			'required' => true,
 			'allowEmpty' => false
 		),

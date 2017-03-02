@@ -79,18 +79,18 @@ class FlightController extends AppController {
 		if (isset ($_POST['_method']) && (!empty ($_POST['data']))) {
 			if ($this->Flight->save($_POST['data'])) {
 				$this->Message->saveLog('IC0101', array (
-					$_POST['data']['Flight']['cname']
+					$_POST['data']['Flight']['flight_number']
 				));
 				$flyTo = '/Flight';
 			} else {
 				$this->Message->saveLog('IC0104', array (
-					$_POST['data']['Flight']['cname']
+					$_POST['data']['Flight']['flight_number']
 				));
 				$flyTo = '';
 			}
 			$this->set(compact('flyTo'));
 		}
-		$this->set('Flights', $this->Flight->flightForList());
+		$this->getListForPullDown();
 		$this->Message->saveLog('IC0002');
 	}
 
@@ -110,10 +110,7 @@ class FlightController extends AppController {
 	public function edit($id) {
 		if (isset ($id)) {
 			$this->set('acs', $this->Flight->findById($id));
-			$this->set('Company', $this->Company->companyForList());
-			$this->set('Terminal', $this->Terminal->terminalForListWithAirport());
-			$this->set('Aircraft', $this->Aircraft->aircraftForList());
-			$this->set('Register', $this->Register->registerForList());
+			$this->getListForPullDown();
 		} else {
 			/**
 			 * TODO: 例外处理
@@ -142,5 +139,12 @@ class FlightController extends AppController {
 		$acs = $_POST['data'];
 		$this->set('flyTo', $flyTo);
 		$this->edit($_POST['data']['Flight']['id']);
+	}
+	
+	private function getListForPullDown() {
+		$this->set('Company', $this->Company->companyForList());
+		$this->set('Terminal', $this->Terminal->terminalForListWithAirport());
+		$this->set('Aircraft', $this->Aircraft->aircraftForList());
+		$this->set('Register', $this->Register->registerForList());
 	}
 }
