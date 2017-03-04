@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * view for CompanyController::edit, CompanyController::save
  *
@@ -8,111 +6,101 @@
  * @package       app.View.Company
  * @since         CakePHP(tm) v 0.10.0.1076
  */
+echo $this->Form->create("", 
+        array(
+                "type" => "POST",
+                "onsubmit" => "",
+                "url" => array(
+                        'controller' => 'Company',
+                        'action' => 'save'
+                )
+        ));
 
-if (!Configure :: read('debug'))
-	: throw new NotFoundException();
-endif;
-App :: uses('Debugger', 'Utility');
+echo $this->Form->inputs(
+        array(
+                'Company.id' => array(
+                        'type' => 'hidden',
+                        'value' => $acs['Company']['id']
+                ),
+                'Company.icao_code' => array(
+                        'label' => 'ICAO CODE',
+                        'value' => $acs['Company']['icao_code'],
+                        'class' => 'u-ipt'
+                ),
+                'Company.iata_code' => array(
+                        'label' => 'IATA CODE',
+                        'value' => $acs['Company']['iata_code'],
+                        'class' => 'u-ipt'
+                ),
+                'Company.ccode' => array(
+                        'label' => '国家',
+                        'type' => 'select',
+                        'multiple' => false,
+                        'options' => $Country,
+                        'selected' => 'CN',
+                        'class' => 'u-pld',
+                        'value' => $acs['Company']['ccode']
+                ),
+                'Company.cname' => array(
+                        'label' => '中文商号',
+                        'value' => $acs['Company']['cname'],
+                        'class' => 'u-ipt'
+                ),
+                'Company.ename' => array(
+                        'label' => '英文商号',
+                        'value' => $acs['Company']['ename'],
+                        'class' => 'u-ipt'
+                )
+        ), null, array(
+                'div' => null,
+                'legend' => '航空公司信息编辑'
+        ));
 
-echo $this->Form->create("", array (
-	"type" => "POST",
-	"onsubmit" => "",
-	"url" => array (
-		'controller' => 'Company',
-		'action' => 'save'
-	)
-));
+echo $this->Form->button('重置', 
+        array(
+                'type' => 'reset',
+                'class' => 'u-btn'
+        ));
 
-echo $this->Form->inputs(array (
-	'Company.id' => array (
-		'type' => 'hidden',
-		'value' => $company['Company']['id']
-	),
-	'Company.icao_code' => array (
-		'label' => 'ICAO CODE',
-		'value' => $company['Company']['icao_code'],
-		'class' => 'u-ipt'
-	),
-	'Company.iata_code' => array (
-		'label' => 'IATA CODE',
-		'value' => $company['Company']['iata_code'],
-		'class' => 'u-ipt'
-	),
-	'Company.ccode' => array (
-		'label' => '国家',
-		'type' => 'select',
-		'multiple' => false,
-		'options' => $Countries,
-		'selected' => 'CN',
-		'class' => 'u-pld'
-	),
-	'Company.cname' => array (
-		'label' => '中文商号',
-		'value' => $company['Company']['cname'],
-		'class' => 'u-ipt'
-	),
-	'Company.ename' => array (
-		'label' => '英文商号',
-		'value' => $company['Company']['ename'],
-		'class' => 'u-ipt'
-	)
-), null, array (
-	'div' => null,
-	'legend' => '航空公司信息编辑'
-));
+echo $this->Form->button('保存', 
+        array(
+                'type' => 'submit',
+                'class' => 'u-btn'
+        ));
 
-echo $this->Form->button('重置', array (
-	'type' => 'reset',
-	'class' => 'u-btn'
-));
-
-echo $this->Form->button('保存', array (
-	'type' => 'submit',
-	'class' => 'u-btn'
-));
-
-echo $this->Form->button('返回', array (
-	'type' => 'button',
-	'class' => 'u-btn',
-	'onclick' => "location.href='/Company';"
-));
+echo $this->Form->button('返回', 
+        array(
+                'type' => 'button',
+                'class' => 'u-btn',
+                'onclick' => "location.href='/Company';"
+        ));
 
 echo $this->Form->end();
 
-if (isset ($flyTo)) {
-	/**
-	 * TODO: No hard-coding
-	 */
-	$popTtl = '保存失败';
-	$popMsg = null;
-	if ($this->Form->isFieldError('Company.icao_code')) {
-		$popMsg .= $this->Form->error('Company.icao_code') . $this->Tag->br();
-	}
-	if ($this->Form->isFieldError('Company.iata_code')) {
-		$popMsg .= $this->Form->error('Company.iata_code') . $this->Tag->br();
-	}
-	if ($this->Form->isFieldError('Company.ccode')) {
-		$popMsg .= $this->Form->error('Company.ccode') . $this->Tag->br();
-	}
-	if ($this->Form->isFieldError('Company.cname')) {
-		$popMsg .= $this->Form->error('Company.cname') . $this->Tag->br();
-	}
-	if ($this->Form->isFieldError('Company.ename')) {
-		$popMsg .= $this->Form->error('Company.ename') . $this->Tag->br();
-	}
-	if (empty ($popMsg)) {
-		$popTtl = '保存成功';
-		$popMsg = '航空公司' . $_POST['data']['Company']['cname'] . '保存成功';
-	}
-	$this->Tag->popup($popTtl, $popMsg, "", $flyTo);
+if (isset($flyTo)) {
+    /**
+     * TODO: No hard-coding
+     */
+    $popTtl = '保存失败';
+    $popMsg = null;
+    if ($this->Form->isFieldError('Company.icao_code')) {
+        $popMsg .= $this->Form->error('Company.icao_code') . $this->Tag->br();
+    }
+    if ($this->Form->isFieldError('Company.iata_code')) {
+        $popMsg .= $this->Form->error('Company.iata_code') . $this->Tag->br();
+    }
+    if ($this->Form->isFieldError('Company.ccode')) {
+        $popMsg .= $this->Form->error('Company.ccode') . $this->Tag->br();
+    }
+    if ($this->Form->isFieldError('Company.cname')) {
+        $popMsg .= $this->Form->error('Company.cname') . $this->Tag->br();
+    }
+    if ($this->Form->isFieldError('Company.ename')) {
+        $popMsg .= $this->Form->error('Company.ename') . $this->Tag->br();
+    }
+    if (empty($popMsg)) {
+        $popTtl = '保存成功';
+        $popMsg = '航空公司' . $_POST['data']['Company']['cname'] . '保存成功';
+    }
+    $this->Tag->popup($popTtl, $popMsg, "", $flyTo);
 }
-
-/**
- * TODO: Remove following BRs
- */
-echo $this->Tag->br(2);
-
-if (Configure :: read('debug') > 0)
-	: Debugger :: checkSecurityKeys();
-endif;
-?>

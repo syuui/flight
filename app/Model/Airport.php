@@ -47,7 +47,7 @@ class Airport extends Model {
 	var $useTable = 'airports';
 
 	/**
-	 * 与其它数据库为 此1 对 彼多 的关系
+	 * 与其它数据库为 此多 对 彼一 的关系
 	 *
 	 * @var array
 	 */

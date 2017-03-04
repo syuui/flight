@@ -56,7 +56,7 @@ foreach ($acs as $ln) {
 	echo $this->Html->tableCells(array (
 		$ln['Company']['icao_code'],
 		$ln['Company']['iata_code'],
-		$ln['Company']['ccode'],
+		$ln['Country']['cname'],
 		$ln['Company']['cname'],
 		$ln['Company']['ename'],
 		$this->Form->button('编辑',

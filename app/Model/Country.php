@@ -18,7 +18,6 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
 App::uses('Model', 'Model');
 
 /**
@@ -27,38 +26,45 @@ App::uses('Model', 'Model');
  * Add your application-wide methods in the class below, your models
  * will inherit them.
  *
- * @package       app.Model
+ * @package app.Model
  */
-class Country extends Model {
-	
-	/**
-	 * 类名
-	 *
-	 * @var string
-	 */
-	var $name='Country';
-	
-	/**
-	 * 所使用的数据库表名
-	 *
-	 * @var string
-	 */
-	var $useTable = 'countries';
+class Country extends Model
+{
 
-	/**
-	 * 下拉列表数据源
-	 *
-	 * 为下拉列表而取得国家数据。所有数据以id=>cname格式存在数组中并返回
-	 *
-	 * @return array 国家列表
-	 */
-	public function countryForList() {
-		$cs = $this->find('all');
-		$cl = array();
-		for( $i=0; $i<count($cs); $i++ ) {
-			$cl[$cs[$i]['Country']['id']] = $cs[$i]['Country']['cname'];
-		}
+    /**
+     * 类名
+     *
+     * @var string
+     */
+    var $name = 'Country';
 
-		return $cl;
-	}
+    /**
+     * 所使用的数据库表名
+     *
+     * @var string
+     */
+    var $useTable = 'countries';
+
+    /**
+     * 下拉列表数据源
+     *
+     * 为下拉列表而取得国家数据。所有数据以id=>cname格式存在数组中并返回
+     *
+     * @return array 国家列表
+     */
+    public function countryForList ()
+    {
+        $cs = $this->find('all', 
+                array(
+                        'order' => array(
+                                'Country.cname' => 'ASC'
+                        )
+                ));
+        $cl = array();
+        for ($i = 0; $i < count($cs); $i ++) {
+            $cl[$cs[$i]['Country']['id']] = $cs[$i]['Country']['cname'];
+        }
+        
+        return $cl;
+    }
 }

@@ -32,7 +32,7 @@ echo $this->Form->inputs(array (
 		'label' => '机场',
 		'type' => 'select',
 		'multiple' => false,
-		'options' => $Airports,
+		'options' => $Airport,
 		'selected' => $acs['Terminal']['airport_id'],
 		'class' => 'u-pld'
 	),

@@ -44,11 +44,15 @@ class Aircraft extends Model {
 	/**
 	 * 字段验证规则
 	 *
-	 * icao_code: 大写英文字母或者数字，三位
-	 * iata_code: 大写英文字母或者数字，两位
-	 * ccode: 大写英文字母或者数字，两位
-	 * cname: 最长32字节
-	 * ename: 最长128字节
+	 * model: 最大64字节
+	 * manufacturer: 最大128字节
+	 * length: 数字，大于0且小于100
+	 * wingspan: 数字，大于0且小于100
+	 * height: 数字，大于0且小于100
+	 * max_range： 数字，大于0且小于20000
+	 * curising_speed： 数字，大于0且小于10000
+	 * max_altitude： 数字，大于0且小于40000
+	 * engines： 数字
 	 *
 	 * @var array
 	 */

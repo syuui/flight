@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Application model for CakePHP.
  *
@@ -20,8 +19,7 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
-App :: uses('Model', 'Model');
+App::uses('Model', 'Model');
 
 /**
  * Application model for Cake.
@@ -29,74 +27,74 @@ App :: uses('Model', 'Model');
  * Add your application-wide methods in the class below, your models
  * will inherit them.
  *
- * @package       app.Model
+ * @package app.Model
  */
-class Register extends Model {
-	/**
-	 * 类名
-	 *
-	 * @var string
-	 */
-	var $name = 'Register';
+class Register extends Model
+{
 
-	/**
-	 * 所使用的数据库表名
-	 *
-	 * @var string
-	 */
-	var $useTable = 'registers';
+    /**
+     * 类名
+     *
+     * @var string
+     */
+    var $name = 'Register';
 
-	/**
-	 * 与Company为 此多 对 彼一 的关系
-	 * 与Aircraft为 此多 对 彼一 的关系
-	 */
+    /**
+     * 所使用的数据库表名
+     *
+     * @var string
+     */
+    var $useTable = 'registers';
+
+    /**
+     * 与Company为 此多 对 彼一 的关系
+     * 与Aircraft为 此多 对 彼一 的关系
+     */
     public $belongsTo = array(
-        'Company' => array(
-            'className' => 'Company',
-            'foreignKey' => 'company_id'
-        ),
-        'Aircraft' => array(
-        	'className' => 'Aircraft',
-        	'foreignKey' => 'aircraft_id'
-        )
+            'Company' => array(
+                    'className' => 'Company',
+                    'foreignKey' => 'company_id'
+            ),
+            'Aircraft' => array(
+                    'className' => 'Aircraft',
+                    'foreignKey' => 'aircraft_id'
+            )
     );
 
-	/**
-	 * 字段验证规则
-	 *
-	 * icao_code: 大写英文字母或者数字，三位
-	 * iata_code: 大写英文字母或者数字，两位
-	 * ccode: 大写英文字母或者数字，两位
-	 * cname: 最长32字节
-	 * ename: 最长128字节
-	 *
-	 * @var array
-	 */
-	var $validate = array (
-		'register_no' => array (
-			'alphaNumeric3' => array (
-				'rule' => '/^[A-Z]{1,2}-[A-Z0-9]{1,4}$/',
-				'message' => '注册号只能由一至二位大写英文字母，接横线，再接一至四位大写英文字母或数字组成。',
-				'required' => true,
-				'allowEmpty' => false
-			)
-		)
-	);
+    /**
+     * 字段验证规则
+     *
+     * register_no: 一至二位大写英文字母，接横线，再接一至四位大写英文字母或数字
+     *
+     * @var array
+     */
+    var $validate = array(
+            'register_no' => array(
+                    'alphaNumeric3' => array(
+                            'rule' => '/^[A-Z]{1,2}-[A-Z0-9]{1,4}$/',
+                            'message' => '注册号只能由一至二位大写英文字母，接横线，再接一至四位大写英文字母或数字组成。',
+                            'required' => true,
+                            'allowEmpty' => false
+                    )
+            )
+    );
 
-	/**
-	 * 下拉列表数据源
-	 *
-	 * 为下拉列表而取得航站楼数据。所有数据以id=>cname格式存在数组中并返回
-	 *
-	 * @return array 航站楼列表
-	 */
-	public function registerForList() {
-		$cs = $this->find('all');
-		$cl = array ();
-		for ($i = 0; $i < count($cs); $i++) {
-			$cl[$cs[$i]['Register']['id']] = $cs[$i]['Register']['register_no'] . ' (' . $cs[$i]['Aircraft']['model'] .')' ;
-		}
-
-		return $cl;
-	}
+    /**
+     * 下拉列表数据源
+     *
+     * 为下拉列表而取得航站楼数据。所有数据以id=>cname格式存在数组中并返回
+     *
+     * @return array 航站楼列表
+     */
+    public function registerForList ()
+    {
+        $cs = $this->find('all');
+        $cl = array();
+        for ($i = 0; $i < count($cs); $i ++) {
+            $cl[$cs[$i]['Register']['id']] = $cs[$i]['Register']['register_no'] .
+                     ' (' . $cs[$i]['Aircraft']['model'] . ')';
+        }
+        
+        return $cl;
+    }
 }
