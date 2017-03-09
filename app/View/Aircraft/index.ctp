@@ -102,10 +102,3 @@ echo $this->Form->button('新增', array (
 	'type' => 'button',
 	'onclick' => 'location.href=\'/Aircraft/add\''
 ));
-
-$this->Tag->br(2);
-
-if (Configure :: read('debug') > 0)
-	: Debugger :: checkSecurityKeys();
-endif;
-?>

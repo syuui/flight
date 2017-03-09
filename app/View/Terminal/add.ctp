@@ -10,6 +10,7 @@
 if (! Configure::read('debug')) :
     throw new NotFoundException();
 
+
 endif;
 
 App::uses('Debugger', 'Utility');
@@ -45,7 +46,8 @@ echo $this->Form->inputs(
                         'label' => '英文名称',
                         'class' => 'u-ipt'
                 )
-        ), null, array(
+        ), null, 
+        array(
                 'div' => null,
                 'legend' => '航站楼信息追加'
         ));
@@ -91,5 +93,5 @@ if (isset($flyTo)) {
         $popTtl = '保存成功';
         $popMsg = '航站楼' . $_POST['data']['Terminal']['cname'] . '保存成功';
     }
-    $this->Tag->popup($popTtl, $popMsg, "", $flyTo);
+    echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);
 }

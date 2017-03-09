@@ -80,13 +80,3 @@ echo $this->Form->button('新增', array (
 	'type' => 'button',
 	'onclick' => 'location.href=\'/Company/add\''
 ));
-
-/**
- * TODO: Remove following BRs
- */
-$this->Tag->br(2);
-
-if (Configure :: read('debug') > 0)
-	: Debugger :: checkSecurityKeys();
-endif;
-?>

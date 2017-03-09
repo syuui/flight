@@ -5440,3 +5440,177 @@ Stack Trace:
 #3 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(943): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2017-03-09 22:39:32 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/favicon.ico
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-09 22:48:48 Error: Fatal Error (1): Call to undefined method View::Elements() in [D:\WorkSpace_EPHPS\flight\app\View\Layouts\default.ctp, line 40]
+2017-03-09 22:48:48 Error: [FatalErrorException] Call to undefined method View::Elements()
+Request URL: /Aircraft
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'D:\\WorkSpace_EP...', 40)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'D:\\WorkSpace_EP...', 40, Array)
+#2 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'D:\\WorkSpace_EP...', 40, Array)
+#3 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-03-09 23:05:56 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => 'DebugKit',
+)
+Request URL: /debug_kit/css/toolbar.css
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-09 23:06:02 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => 'DebugKit',
+)
+Request URL: /debug_kit/css/toolbar.css
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-09 23:06:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => 'DebugKit',
+)
+Request URL: /debug_kit/css/toolbar.css
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-09 23:06:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => 'DebugKit',
+)
+Request URL: /debug_kit/css/toolbar.css
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-09 23:45:25 Error: [NotFoundException] Not Found
+Request URL: /Aircraft
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\ComponentCollection.php(116): SimpleSaveDBComponent->__construct(Object(ComponentCollection), Array)
+#1 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\ComponentCollection.php(53): ComponentCollection->load('SimpleSaveDB', Array)
+#2 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\Controller.php(644): ComponentCollection->init(Object(AircraftController))
+#3 D:\WorkSpace_EPHPS\flight\lib\Cake\Routing\Dispatcher.php(188): Controller->constructClasses()
+#4 D:\WorkSpace_EPHPS\flight\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AircraftController), Object(CakeRequest))
+#5 D:\WorkSpace_EPHPS\flight\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2017-03-09 23:46:01 Error: [NotFoundException] Not Found
+Request URL: /Aircraft
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\ComponentCollection.php(116): SimpleSaveDBComponent->__construct(Object(ComponentCollection), Array)
+#1 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\ComponentCollection.php(53): ComponentCollection->load('SimpleSaveDB', Array)
+#2 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\Controller.php(644): ComponentCollection->init(Object(AircraftController))
+#3 D:\WorkSpace_EPHPS\flight\lib\Cake\Routing\Dispatcher.php(188): Controller->constructClasses()
+#4 D:\WorkSpace_EPHPS\flight\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AircraftController), Object(CakeRequest))
+#5 D:\WorkSpace_EPHPS\flight\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2017-03-09 23:46:34 Error: [NotFoundException] Not Found
+Request URL: /Aircraft
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\ComponentCollection.php(116): SimpleSaveDBComponent->__construct(Object(ComponentCollection), Array)
+#1 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\ComponentCollection.php(53): ComponentCollection->load('SimpleSaveDB', Array)
+#2 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\Controller.php(644): ComponentCollection->init(Object(AircraftController))
+#3 D:\WorkSpace_EPHPS\flight\lib\Cake\Routing\Dispatcher.php(188): Controller->constructClasses()
+#4 D:\WorkSpace_EPHPS\flight\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AircraftController), Object(CakeRequest))
+#5 D:\WorkSpace_EPHPS\flight\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2017-03-09 23:46:42 Error: [NotFoundException] Not Found
+Request URL: /Aircraft
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\ComponentCollection.php(116): SimpleSaveDBComponent->__construct(Object(ComponentCollection), Array)
+#1 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\ComponentCollection.php(53): ComponentCollection->load('SimpleSaveDB', Array)
+#2 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\Controller.php(644): ComponentCollection->init(Object(AircraftController))
+#3 D:\WorkSpace_EPHPS\flight\lib\Cake\Routing\Dispatcher.php(188): Controller->constructClasses()
+#4 D:\WorkSpace_EPHPS\flight\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AircraftController), Object(CakeRequest))
+#5 D:\WorkSpace_EPHPS\flight\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2017-03-09 23:46:43 Error: [NotFoundException] Not Found
+Request URL: /Aircraft
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\ComponentCollection.php(116): SimpleSaveDBComponent->__construct(Object(ComponentCollection), Array)
+#1 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\ComponentCollection.php(53): ComponentCollection->load('SimpleSaveDB', Array)
+#2 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\Controller.php(644): ComponentCollection->init(Object(AircraftController))
+#3 D:\WorkSpace_EPHPS\flight\lib\Cake\Routing\Dispatcher.php(188): Controller->constructClasses()
+#4 D:\WorkSpace_EPHPS\flight\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AircraftController), Object(CakeRequest))
+#5 D:\WorkSpace_EPHPS\flight\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2017-03-09 23:50:58 Error: [NotFoundException] Not Found
+Request URL: /Aircraft
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\ComponentCollection.php(116): SimpleSaveDBComponent->__construct(Object(ComponentCollection), Array)
+#1 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\ComponentCollection.php(53): ComponentCollection->load('SimpleSaveDB', Array)
+#2 D:\WorkSpace_EPHPS\flight\lib\Cake\Controller\Controller.php(644): ComponentCollection->init(Object(AircraftController))
+#3 D:\WorkSpace_EPHPS\flight\lib\Cake\Routing\Dispatcher.php(188): Controller->constructClasses()
+#4 D:\WorkSpace_EPHPS\flight\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(AircraftController), Object(CakeRequest))
+#5 D:\WorkSpace_EPHPS\flight\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2017-03-10 00:00:43 Error: Fatal Error (1): Call to undefined method SimpleSaveDBComponent::loadModle() in [D:\WorkSpace_EPHPS\flight\app\Controller\Component\SimpleSaveDBComponent.php, line 35]
+2017-03-10 00:00:43 Error: [FatalErrorException] Call to undefined method SimpleSaveDBComponent::loadModle()
+Request URL: /Aircraft
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'D:\\WorkSpace_EP...', 35)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'D:\\WorkSpace_EP...', 35, Array)
+#2 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'D:\\WorkSpace_EP...', 35, Array)
+#3 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-03-10 00:01:19 Error: Fatal Error (1): Call to undefined method SimpleSaveDBComponent::loadModel() in [D:\WorkSpace_EPHPS\flight\app\Controller\Component\SimpleSaveDBComponent.php, line 35]
+2017-03-10 00:01:19 Error: [FatalErrorException] Call to undefined method SimpleSaveDBComponent::loadModel()
+Request URL: /Aircraft
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'D:\\WorkSpace_EP...', 35)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'D:\\WorkSpace_EP...', 35, Array)
+#2 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'D:\\WorkSpace_EP...', 35, Array)
+#3 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-03-10 00:01:21 Error: Fatal Error (1): Call to undefined method SimpleSaveDBComponent::loadModel() in [D:\WorkSpace_EPHPS\flight\app\Controller\Component\SimpleSaveDBComponent.php, line 35]
+2017-03-10 00:01:21 Error: [FatalErrorException] Call to undefined method SimpleSaveDBComponent::loadModel()
+Request URL: /Aircraft
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'D:\\WorkSpace_EP...', 35)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'D:\\WorkSpace_EP...', 35, Array)
+#2 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'D:\\WorkSpace_EP...', 35, Array)
+#3 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-03-10 00:09:47 Error: [MissingControllerException] Controller class TermiController could not be found.
+Exception Attributes: array (
+  'class' => 'TermiController',
+  'plugin' => NULL,
+)
+Request URL: /Termi
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-03-10 00:21:38 Error: Fatal Error (4): syntax error, unexpected '$this' (T_VARIABLE) in [D:\WorkSpace_EPHPS\flight\app\View\Elements\foot.ctp, line 6]
+2017-03-10 00:21:38 Error: [FatalErrorException] syntax error, unexpected '$this' (T_VARIABLE)
+Request URL: /Company
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\WorkSpace_EP...', 6)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\WorkSpace_EP...', 6, Array)
+#2 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\WorkSpace_EP...', 6, Array)
+#3 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-03-10 00:39:23 Error: Test
+2017-03-10 00:43:44 Error: Fatal Error (1): Class 'TagHelper' not found in [D:\WorkSpace_EPHPS\flight\app\Test\Case\View\Helper\TagHelperTest.php, line 14]
+2017-03-10 00:43:44 Error: [FatalErrorException] Class 'TagHelper' not found
+Stack Trace:
+#0 D:\WorkSpace_EPHPS\flight\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Class 'TagHelpe...', 'D:\\WorkSpace_EP...', 14)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'TagHelpe...', 'D:\\WorkSpace_EP...', 14, Array)
+#2 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(970): call_user_func('ErrorHandler::h...', 1, 'Class 'TagHelpe...', 'D:\\WorkSpace_EP...', 14, Array)
+#3 D:\WorkSpace_EPHPS\flight\lib\Cake\Core\App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

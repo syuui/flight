@@ -51,7 +51,8 @@ echo $this->Form->inputs(
                         'value' => $acs['Company']['ename'],
                         'class' => 'u-ipt'
                 )
-        ), null, array(
+        ), null, 
+        array(
                 'div' => null,
                 'legend' => '航空公司信息编辑'
         ));
@@ -102,5 +103,5 @@ if (isset($flyTo)) {
         $popTtl = '保存成功';
         $popMsg = '航空公司' . $_POST['data']['Company']['cname'] . '保存成功';
     }
-    $this->Tag->popup($popTtl, $popMsg, "", $flyTo);
+    echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);
 }

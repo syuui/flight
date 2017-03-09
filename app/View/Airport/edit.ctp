@@ -129,16 +129,5 @@ if (isset ( $flyTo )) {
 		$popTtl = '保存成功';
 		$popMsg = '机场' . $_POST ['data'] ['Airport'] ['cname'] . '保存成功';
 	}
-	$this->Tag->popup ( $popTtl, $popMsg, "", $flyTo );
+	echo $this->Tag->popup ( $popTtl, $popMsg, "", $flyTo );
 }
-
-/**
- * TODO: Remove following BRs
- */
-echo $this->Tag->br ( 2 );
-
-if (Configure::read ( 'debug' ) > 0) :
-	Debugger::checkSecurityKeys ();
-
-endif;
-?>

@@ -1,29 +1,10 @@
 <?php
-
-/**
- * Static content controller.
- *
- * This file will render views from views/Company/
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.Controller
- * @since         CakePHP(tm) v 0.2.9
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
 App::uses('AppController', 'Controller');
 
 /**
- * CompanyController
+ * AircraftController
  *
- * 航空公司用Controller
+ * 机型用Controller
  *
  * @package app.Controller
  * @link
@@ -94,7 +75,6 @@ class AircraftController extends AppController
     public function edit ($id)
     {
         $this->Message->saveLog('IC0001');
-        $this->view = ('edit');
         
         if (isset($id)) {
             $this->set('acs', $this->Aircraft->findById($id));
@@ -106,7 +86,7 @@ class AircraftController extends AppController
     public function save ()
     {
         $this->Message->saveLog('IC0001');
-        if (isset($_POST['data']['Aircraft']['id'])) {
+        if (isset($this->data['Aircraft']['id'])) {
             $this->view = 'edit';
         } else {
             $this->view = 'add';
@@ -116,17 +96,17 @@ class AircraftController extends AppController
             if ($this->Aircraft->save($_POST['data'])) {
                 $this->Message->saveLog('IC0102', 
                         array(
-                                $_POST['data']['Aircraft']['model']
+                                $this->data['Aircraft']['model']
                         ));
                 $flyTo = '/Aircraft';
             } else {
                 $this->Message->saveLog('IC0104', 
                         array(
-                                $_POST['data']['Aircraft']['model']
+                                $this->data['Aircraft']['model']
                         ));
                 $flyTo = '';
             }
-            $acs = $_POST['data'];
+            $acs = $this->data;
             $this->set(compact('flyTo', 'acs'));
         } else {
         /**

@@ -52,7 +52,8 @@ echo $this->Form->inputs(
                         'label' => '发动机数',
                         'class' => 'u-ipt'
                 )
-        ), null, array(
+        ), null, 
+        array(
                 'div' => null,
                 'legend' => '机型信息编辑'
         ));
@@ -118,5 +119,5 @@ if (isset($flyTo)) {
         $popTtl = '保存成功';
         $popMsg = '机型' . $_POST['data']['Aircraft']['model'] . '保存成功';
     }
-    $this->Tag->popup($popTtl, $popMsg, "", $flyTo);
+    echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);
 }

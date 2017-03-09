@@ -130,5 +130,5 @@ if (isset($flyTo)) {
         $popTtl = '保存成功';
         $popMsg = '机型' . $_POST['data']['Aircraft']['model'] . '保存成功';
     }
-    $this->Tag->popup($popTtl, $popMsg, "", $flyTo);
+    echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);
 }
