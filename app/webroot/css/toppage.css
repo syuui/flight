@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+
+html {
+	
+}
+
+body {
+	background: url('../img/background.jpg');
+	text-align: center;
+}
+
+#tp {
+	position: relative;
+	margin: 200px auto;
+	width: 1024px;
+	height: 512px;
+	background: url('../img/top.jpg');
+	border: 1px solid;
+	box-shadow: 4px 4px 6px #000;
+}
+
+#tp h1 {
+	font-size: 48pt;
+	color: transparent;
+	background-color: black;
+	text-shadow: rgba(255, 255, 255, 0.5) 0 5px 6px,
+		rgba(255, 255, 255, 0.2) 1px 3px 3px;
+	-webkit-background-clip: text;
+}
+
+#tp ul {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background: #0095BB;
+}
+
+#tp ul li {
+	width: 120px;
+	height: 60px;
+	display: inline;
+	color: transparent;
+	background-color: black;
+	text-shadow: rgba(255, 255, 255, 0.5) 0 5px 6px,
+		rgba(255, 255, 255, 0.2) 1px 3px 3px;
+	-webkit-background-clip: text;
+}
+
+#tp ul li a {
+	display: inline-block;
+	padding: 0 20px;
+	height: 60px;
+	line-height: 60px;
+	color: #000;
+	font-family: "\5FAE\8F6F\96C5\9ED1";
+	font-size: 16px
+}
+
+#tp ul li a:hover {
+	background: #FFFFFF;
+} /*设置鼠标滑过或悬停时变化的背景颜色*/

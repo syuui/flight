@@ -1,5 +1,7 @@
 @CHARSET "UTF-8";
 
+@import url('sidebar.css');
+
 .g-ft hr {
 	width: 100%;
 }
