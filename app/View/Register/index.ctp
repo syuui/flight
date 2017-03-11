@@ -6,11 +6,6 @@
  * @package       app.View.Pages
  * @since         CakePHP(tm) v 0.10.0.1076
  */
-if (!Configure :: read('debug'))
-	: throw new NotFoundException();
-endif;
-App :: uses('Debugger', 'Utility');
-
 echo $this->Form->button('新增', array (
 	'class' => 'u-btn',
 	'type' => 'button',

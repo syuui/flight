@@ -83,7 +83,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'syuui',
 		'password' => 'laoruo0416',
-		'database' => 'personalhp',
+		'database' => 'personalhp_test',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	);

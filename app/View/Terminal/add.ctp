@@ -6,7 +6,6 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       app.View.Pages
  * @since         CakePHP(tm) v 0.10.0.1076
- */
 if (! Configure::read('debug')) :
     throw new NotFoundException();
 
@@ -14,6 +13,7 @@ if (! Configure::read('debug')) :
 endif;
 
 App::uses('Debugger', 'Utility');
+ */
 
 echo $this->Form->create("", 
         array(
