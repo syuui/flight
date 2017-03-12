@@ -7,7 +7,6 @@
  * @package       app.View.Pages
  * @since         CakePHP(tm) v 0.10.0.1076
  */
-
 echo $this->Form->create("", 
         array(
                 "type" => "POST",
@@ -76,14 +75,14 @@ if (isset($flyTo)) {
     /**
      * TODO: No hard-coding
      */
-    $popTtl = '保存失败';
+    $popTtl = '出错啦';
     $popMsg = null;
     if ($this->Form->isFieldError('Register.register_no')) {
         $popMsg .= $this->Form->error('Register.register_no') . $this->Tag->br();
     }
     
     if (empty($popMsg)) {
-        $popTtl = '保存成功';
+        $popTtl = '搞定啦';
         $popMsg = '飞机注册号保存成功';
     }
     echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);

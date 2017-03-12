@@ -18,51 +18,51 @@ echo $this->Form->inputs(
         array(
                 'Aircraft.id' => array(
                         'type' => 'hidden',
-                        'value' => $acs['Aircraft']['id']
+                        'value' => $data['Aircraft']['id']
                 ),
                 'Aircraft.model' => array(
                         'label' => '机型',
-                        'value' => $acs['Aircraft']['model'],
+                        'value' => $data['Aircraft']['model'],
                         'class' => 'u-ipt'
                 ),
                 'Aircraft.manufacturer' => array(
                         'label' => '制造商',
-                        'value' => $acs['Aircraft']['manufacturer'],
+                        'value' => $data['Aircraft']['manufacturer'],
                         'class' => 'u-ipt'
                 ),
                 'Aircraft.length' => array(
                         'label' => '长度（米）',
-                        'value' => $acs['Aircraft']['length'],
+                        'value' => $data['Aircraft']['length'],
                         'class' => 'u-ipt'
                 ),
                 'Aircraft.wingspan' => array(
                         'label' => '翼展（米）',
-                        'value' => $acs['Aircraft']['wingspan'],
+                        'value' => $data['Aircraft']['wingspan'],
                         'class' => 'u-ipt'
                 ),
                 'Aircraft.height' => array(
                         'label' => '高度（米）',
-                        'value' => $acs['Aircraft']['height'],
+                        'value' => $data['Aircraft']['height'],
                         'class' => 'u-ipt'
                 ),
                 'Aircraft.max_range' => array(
                         'label' => '最大航程(公里)',
-                        'value' => $acs['Aircraft']['max_range'],
+                        'value' => $data['Aircraft']['max_range'],
                         'class' => 'u-ipt'
                 ),
                 'Aircraft.curising_speed' => array(
                         'label' => '巡航速度（公里/小时）',
-                        'value' => $acs['Aircraft']['curising_speed'],
+                        'value' => $data['Aircraft']['curising_speed'],
                         'class' => 'u-ipt'
                 ),
                 'Aircraft.max_altitude' => array(
                         'label' => '最大巡航高度（米）',
-                        'value' => $acs['Aircraft']['max_altitude'],
+                        'value' => $data['Aircraft']['max_altitude'],
                         'class' => 'u-ipt'
                 ),
                 'Aircraft.engines' => array(
                         'label' => '发动机数',
-                        'value' => $acs['Aircraft']['engines'],
+                        'value' => $data['Aircraft']['engines'],
                         'class' => 'u-ipt'
                 )
         ), null, 
@@ -96,7 +96,7 @@ if (isset($flyTo)) {
     /**
      * TODO: No hard-coding
      */
-    $popTtl = '保存失败';
+    $popTtl = '出错啦';
     $popMsg = null;
     if ($this->Form->isFieldError('Aircraft.model')) {
         $popMsg .= $this->Form->error('Aircraft.model') . $this->Tag->br();
@@ -127,7 +127,7 @@ if (isset($flyTo)) {
         $popMsg .= $this->Form->error('Aircraft.engines') . $this->Tag->br();
     }
     if (empty($popMsg)) {
-        $popTtl = '保存成功';
+        $popTtl = '搞定啦';
         $popMsg = '机型' . $_POST['data']['Aircraft']['model'] . '保存成功';
     }
     echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);

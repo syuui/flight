@@ -9,6 +9,9 @@ App::uses('AppController', 'Controller');
  * @package app.Controller
  * @link
  *
+ * @author 周威 <syuui@sohu.com>
+ * @copyright 周威 2017
+ * @version 1.0
  */
 class AircraftController extends AppController
 {
@@ -42,50 +45,33 @@ class AircraftController extends AppController
 
     public function index ()
     {
-        $this->Message->saveLog('IC0001');
-        
-        $this->set('acs', $this->Aircraft->find('all', '*', 'ename'));
-        
-        $this->Message->saveLog('IC0002');
+        $this->set('data', $this->Aircraft->find('all', '*', 'ename'));
     }
 
     public function add ()
-    {
-        $this->Message->saveLog('IC0001');
-        
-        $this->Message->saveLog('IC0002');
-    }
+    {}
 
     public function del ($id)
     {
-        $this->Message->saveLog('IC0001');
-        
         if (isset($id)) {
-            $this->Message->saveLog('IC0203', 
-                    array(
-                            $id
-                    ));
             $this->Aircraft->delete($id);
             $this->redirect('/Aircraft');
+        } else {
+            throw new NotFoundException();
         }
-        
-        $this->Message->saveLog('IC0002');
     }
 
     public function edit ($id)
     {
-        $this->Message->saveLog('IC0001');
-        
         if (isset($id)) {
-            $this->set('acs', $this->Aircraft->findById($id));
+            $this->set('data', $this->Aircraft->findById($id));
+        } else {
+            throw new NotFoundException();
         }
-        
-        $this->Message->saveLog('IC0002');
     }
 
     public function save ()
     {
-        $this->Message->saveLog('IC0001');
         if (isset($this->data['Aircraft']['id'])) {
             $this->view = 'edit';
         } else {
@@ -93,27 +79,15 @@ class AircraftController extends AppController
         }
         
         if (isset($_POST['_method'])) {
-            if ($this->Aircraft->save($_POST['data'])) {
-                $this->Message->saveLog('IC0102', 
-                        array(
-                                $this->data['Aircraft']['model']
-                        ));
+            if ($this->Aircraft->save($this->data)) {
                 $flyTo = '/Aircraft';
             } else {
-                $this->Message->saveLog('IC0104', 
-                        array(
-                                $this->data['Aircraft']['model']
-                        ));
                 $flyTo = '';
             }
-            $acs = $this->data;
-            $this->set(compact('flyTo', 'acs'));
+            $data = $this->data;
+            $this->set(compact('flyTo', 'data'));
         } else {
-        /**
-         * TODO: 例外处理
-         */
+            throw new SaveBlankDataException(null);
         }
-        
-        $this->Message->saveLog('IC0002');
     }
 }

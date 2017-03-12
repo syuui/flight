@@ -62,85 +62,54 @@ class CompanyController extends AppController
 
     public function index ()
     {
-        $this->Message->saveLog('IC0001');
-        
-        $this->set('acs', $this->Company->find('all', '*', 'ename'));
-        
-        $this->Message->saveLog('IC0002');
+        $this->set('data', $this->Company->find('all', '*', 'ename'));
     }
 
     public function add ()
     {
-        $this->Message->saveLog('IC0001');
         $this->getListForPullDown();
-        $this->Message->saveLog('IC0002');
     }
 
     public function del ($id)
     {
-        $this->Message->saveLog('IC0001');
-        
         if (isset($id)) {
-            $this->Message->saveLog('IC0103', 
-                    array(
-                            $id
-                    ));
             $this->Company->delete($id);
             $this->redirect('/Company');
+        } else {
+            throw new NotFoundException();
         }
-        
-        $this->Message->saveLog('IC0002');
     }
 
     public function edit ($id)
     {
-        $this->Message->saveLog('IC0001');
-        
         if (isset($id)) {
-            $this->set('acs', $this->Company->findById($id));
+            $this->set('data', $this->Company->findById($id));
+            $this->getListForPullDown();
         } else {
-        /**
-         * TODO: 例外处理
-         */
+            throw new NotFoundException();
         }
-        $this->getListForPullDown();
-        $this->Message->saveLog('IC0002');
     }
 
     public function save ()
     {
-        $this->Message->saveLog('IC0001');
-        if (isset($_POST['data']['Company']['id'])) {
-            $this->view = ('edit');
+        if (isset($this->data['Company']['id'])) {
+            $this->view = 'edit';
         } else {
-            $this->view = ('add');
+            $this->view = 'add';
         }
         
-        if (isset($_POST['_method']) &&
-                 (! empty($_POST['data']['Company']['id']))) {
-            if ($this->Company->save($_POST['data'])) {
-                $this->Message->saveLog('IC0102', 
-                        array(
-                                $_POST['data']['Company']['cname']
-                        ));
+        if (isset($_POST['_method'])) {
+            if ($this->Company->save($this->data)) {
                 $flyTo = '/Company';
             } else {
-                $this->Message->saveLog('IC0104', 
-                        array(
-                                $_POST['data']['Company']['cname']
-                        ));
                 $flyTo = '';
             }
+            $data = $this->data;
+            $this->set(compact('flyTo', 'data'));
+            $this->getListForPullDown();
         } else {
-        /**
-         * TODO: 例外处理
-         */
+            throw new SaveBlankDataException(null);
         }
-        $company = $_POST['data'];
-        $this->set('flyTo', $flyTo);
-        $this->set('acs', $_POST['data']);
-        $this->getListForPullDown();
-        $this->Message->saveLog('IC0002');
     }
 
     private function getListForPullDown ()

@@ -126,7 +126,7 @@ if (isset($flyTo)) {
     /**
      * TODO: No hard-coding
      */
-    $popTtl = '保存失败';
+    $popTtl = '出错啦';
     $popMsg = null;
     if ($this->Form->isFieldError('Flight.company_id')) {
         $popMsg .= $this->Form->error('Flight.company_id') . $this->Tag->br();
@@ -153,7 +153,7 @@ if (isset($flyTo)) {
         $popMsg .= $this->Form->error('Flight.seat_no') . $this->Tag->br();
     }
     if (empty($popMsg)) {
-        $popTtl = '保存成功';
+        $popTtl = '搞定啦';
         $popMsg = '航班' . $_POST['data']['Flight']['flight_name'] . '保存成功';
     }
     echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);

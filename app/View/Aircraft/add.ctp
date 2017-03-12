@@ -85,7 +85,7 @@ if (isset($flyTo)) {
     /**
      * TODO: No hard-coding
      */
-    $popTtl = '保存失败';
+    $popTtl = '出错啦';
     $popMsg = null;
     if ($this->Form->isFieldError('Aircraft.model')) {
         $popMsg .= $this->Form->error('Aircraft.model') . $this->Tag->br();
@@ -116,7 +116,7 @@ if (isset($flyTo)) {
         $popMsg .= $this->Form->error('Aircraft.engines') . $this->Tag->br();
     }
     if (empty($popMsg)) {
-        $popTtl = '保存成功';
+        $popTtl = '搞定啦';
         $popMsg = '机型' . $_POST['data']['Aircraft']['model'] . '保存成功';
     }
     echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);

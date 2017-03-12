@@ -20,16 +20,16 @@ echo $this->Form->inputs(
         array(
                 'Company.id' => array(
                         'type' => 'hidden',
-                        'value' => $acs['Company']['id']
+                        'value' => $data['Company']['id']
                 ),
                 'Company.icao_code' => array(
                         'label' => 'ICAO CODE',
-                        'value' => $acs['Company']['icao_code'],
+                        'value' => $data['Company']['icao_code'],
                         'class' => 'u-ipt'
                 ),
                 'Company.iata_code' => array(
                         'label' => 'IATA CODE',
-                        'value' => $acs['Company']['iata_code'],
+                        'value' => $data['Company']['iata_code'],
                         'class' => 'u-ipt'
                 ),
                 'Company.ccode' => array(
@@ -39,16 +39,16 @@ echo $this->Form->inputs(
                         'options' => $Country,
                         'selected' => 'CN',
                         'class' => 'u-pld',
-                        'value' => $acs['Company']['ccode']
+                        'value' => $data['Company']['ccode']
                 ),
                 'Company.cname' => array(
                         'label' => '中文商号',
-                        'value' => $acs['Company']['cname'],
+                        'value' => $data['Company']['cname'],
                         'class' => 'u-ipt'
                 ),
                 'Company.ename' => array(
                         'label' => '英文商号',
-                        'value' => $acs['Company']['ename'],
+                        'value' => $data['Company']['ename'],
                         'class' => 'u-ipt'
                 )
         ), null, 
@@ -82,7 +82,7 @@ if (isset($flyTo)) {
     /**
      * TODO: No hard-coding
      */
-    $popTtl = '保存失败';
+    $popTtl = '出错啦';
     $popMsg = null;
     if ($this->Form->isFieldError('Company.icao_code')) {
         $popMsg .= $this->Form->error('Company.icao_code') . $this->Tag->br();
@@ -100,7 +100,7 @@ if (isset($flyTo)) {
         $popMsg .= $this->Form->error('Company.ename') . $this->Tag->br();
     }
     if (empty($popMsg)) {
-        $popTtl = '保存成功';
+        $popTtl = '搞定啦';
         $popMsg = '航空公司' . $_POST['data']['Company']['cname'] . '保存成功';
     }
     echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);

@@ -22,11 +22,11 @@ echo $this->Form->inputs(
         array(
                 'Register.id' => array(
                         'type' => 'hidden',
-                        'value' => $acs['Register']['id']
+                        'value' => $data['Register']['id']
                 ),
                 'Register.register_no' => array(
                         'label' => '注册号',
-                        'value' => $acs['Register']['register_no'],
+                        'value' => $data['Register']['register_no'],
                         'class' => 'u-ipt'
                 ),
                 'Register.aircraft_id' => array(
@@ -34,7 +34,7 @@ echo $this->Form->inputs(
                         'type' => 'select',
                         'multiple' => false,
                         'options' => $Aircraft,
-                        'selected' => $acs['Register']['aircraft_id'],
+                        'selected' => $data['Register']['aircraft_id'],
                         'class' => 'u-pld'
                 ),
                 'Register.company_id' => array(
@@ -42,12 +42,12 @@ echo $this->Form->inputs(
                         'type' => 'select',
                         'multiple' => false,
                         'options' => $Company,
-                        'selected' => $acs['Register']['company_id'],
+                        'selected' => $data['Register']['company_id'],
                         'class' => 'u-pld'
                 ),
                 'Register.register_date' => array(
                         'label' => '注册日时',
-                        'value' => $acs['Register']['register_date'],
+                        'value' => $data['Register']['register_date'],
                         'class' => 'u-dtm',
                         'dateFormat' => 'Y-M-D'
                 )
@@ -81,14 +81,14 @@ if (isset($flyTo)) {
     /**
      * TODO: No hard-coding
      */
-    $popTtl = '保存失败';
+    $popTtl = '出错啦';
     $popMsg = null;
     if ($this->Form->isFieldError('Register.register_no')) {
         $popMsg .= $this->Form->error('Register.register_no') . $this->Tag->br();
     }
     
     if (empty($popMsg)) {
-        $popTtl = '保存成功';
+        $popTtl = '搞定啦';
         $popMsg = '飞机注册号保存成功';
     }
     echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);

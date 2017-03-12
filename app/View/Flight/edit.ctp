@@ -21,29 +21,29 @@ echo $this->Form->inputs(
         array(
                 'Flight.id' => array(
                         'type' => 'hidden',
-                        'value' => $acs['Flight']['id']
+                        'value' => $data['Flight']['id']
                 ),
                 'Flight.company_id' => array(
                         'label' => '航空公司',
                         'class' => 'u-pld',
                         'options' => $Company,
-                        'value' => $acs['Flight']['company_id']
+                        'value' => $data['Flight']['company_id']
                 ),
                 'Flight.flight_number' => array(
                         'label' => '航班号',
-                        'value' => $acs['Flight']['flight_number'],
+                        'value' => $data['Flight']['flight_number'],
                         'class' => 'u-ipt'
                 ),
                 'Flight.departure_time' => array(
                         'label' => '计划出发日时',
-                        'value' => $acs['Flight']['departure_time'],
+                        'value' => $data['Flight']['departure_time'],
                         'class' => 'u-dtm',
                         'dateFormat' => 'Y-M-D H:I',
                         'timeFormat' => '24'
                 ),
                 'Flight.real_departure_time' => array(
                         'label' => '实际出发日时',
-                        'value' => $acs['Flight']['real_departure_time'],
+                        'value' => $data['Flight']['real_departure_time'],
                         'class' => 'u-dtm',
                         'dateFormat' => 'Y-M-D H:I',
                         'timeFormat' => '24'
@@ -54,23 +54,23 @@ echo $this->Form->inputs(
                         'multiple' => false,
                         'options' => $Terminal,
                         'class' => 'u-pld',
-                        'value' => $acs['Flight']['departure_terminal_id']
+                        'value' => $data['Flight']['departure_terminal_id']
                 ),
                 'Flight.departure_terminal_gate' => array(
                         'label' => '登机口',
                         'class' => 'u-ipt',
-                        'value' => $acs['Flight']['departure_terminal_gate']
+                        'value' => $data['Flight']['departure_terminal_gate']
                 ),
                 'Flight.arrival_time' => array(
                         'label' => '计划到着日时',
-                        'value' => $acs['Flight']['arrival_time'],
+                        'value' => $data['Flight']['arrival_time'],
                         'class' => 'u-dtm',
                         'dateFormat' => 'Y-M-D H:I',
                         'timeFormat' => '24'
                 ),
                 'Flight.real_arrival_time' => array(
                         'label' => '实际到着日时',
-                        'value' => $acs['Flight']['real_arrival_time'],
+                        'value' => $data['Flight']['real_arrival_time'],
                         'class' => 'u-dtm',
                         'dateFormat' => 'Y-M-D H:I',
                         'timeFormat' => '24'
@@ -81,24 +81,24 @@ echo $this->Form->inputs(
                         'multiple' => false,
                         'options' => $Terminal,
                         'class' => 'u-pld',
-                        'value' => $acs['Flight']['arrival_terminal_id']
+                        'value' => $data['Flight']['arrival_terminal_id']
                 ),
                 'Flight.register_id' => array(
                         'label' => '飞机注册号',
                         'type' => 'select',
                         'multiple' => false,
                         'options' => $Register,
-                        'value' => $acs['Flight']['register_id'],
+                        'value' => $data['Flight']['register_id'],
                         'class' => 'u-pld'
                 ),
                 'Flight.seat_no' => array(
                         'label' => '座位号',
-                        'value' => $acs['Flight']['seat_no'],
+                        'value' => $data['Flight']['seat_no'],
                         'class' => 'u-ipt'
                 ),
                 'Flight.meal' => array(
                         'label' => '餐食',
-                        'value' => $acs['Flight']['meal'],
+                        'value' => $data['Flight']['meal'],
                         'class' => 'u-ipt'
                 ),
                 'Flight.memo' => array(
@@ -136,7 +136,7 @@ if (isset($flyTo) && ! empty($flyTo)) {
     /**
      * TODO: No hard-coding
      */
-    $popTtl = '保存失败';
+    $popTtl = '出错啦';
     $popMsg = null;
     if ($this->Form->isFieldError('company_id')) {
         $popMsg .= $this->Form->error('Flight.company_id') . $this->Tag->br();
@@ -163,7 +163,7 @@ if (isset($flyTo) && ! empty($flyTo)) {
         $popMsg .= $this->Form->error('Flight.seat_no') . $this->Tag->br();
     }
     if (empty($popMsg)) {
-        $popTtl = '保存成功';
+        $popTtl = '搞定啦';
         $popMsg = '航班保存成功';
     }
     echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);

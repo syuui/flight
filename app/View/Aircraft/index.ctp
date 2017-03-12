@@ -65,7 +65,7 @@ echo $this->html->tableHeaders(array (
 	)
 ));
 
-foreach ($acs as $ln) {
+foreach ($data as $ln) {
 	echo $this->html->tableCells(array (
 		$ln['Aircraft']['model'],
 		$ln['Aircraft']['manufacturer'],

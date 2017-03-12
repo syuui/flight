@@ -66,76 +66,54 @@ class FlightController extends AppController
 
     public function index ()
     {
-        $this->Message->saveLog('IC0001');
-        
-        $acs = $this->Flight->find('all');
-        $this->set(compact('acs'));
-        
-        $this->Message->saveLog('IC0002');
+        $this->set('data', $this->Flight->find('all'));
     }
 
     public function add ()
     {
-        $this->Message->saveLog('IC0001');
         $this->getListForPullDown();
-        $this->Message->saveLog('IC0002');
     }
 
     public function del ($id)
     {
-        $this->Message->saveLog('IC0001');
-        
         if (isset($id)) {
-            $this->Message->saveLog('IC0103', 
-                    array(
-                            $id
-                    ));
             $this->Flight->delete($id);
             $this->redirect('/Flight');
+        } else {
+            throw new NotFoundException();
         }
-        
-        $this->Message->saveLog('IC0002');
     }
 
     public function edit ($id)
     {
         if (isset($id)) {
-            $this->set('acs', $this->Flight->findById($id));
+            $this->set('data', $this->Flight->findById($id));
             $this->getListForPullDown();
         } else {
-        /**
-         * TODO: 例外处理
-         */
+            throw new NotFoundException();
         }
     }
 
     public function save ()
     {
-        $this->Message->saveLog('IC0001');
-        
-        if (isset($_POST['data']['Flight']['id'])) {
+        if (isset($this->data['Flight']['id'])) {
             $this->view = 'edit';
         } else {
             $this->view = 'add';
         }
         
         if (isset($_POST['_method'])) {
-            if ($this->Flight->save($_POST['data'])) {
+            if ($this->Flight->save($this->data)) {
                 $flyTo = '/Flight';
-                $Flights = $this->Flight->flightForList();
             } else {
                 $flyTo = '';
-                $Flights = $this->Flight->flightForList();
             }
+            $data = $this->data;
+            $this->set(compact('flyTo', 'data'));
+            $this->getListForPullDown();
         } else {
-        /**
-         * TODO: 例外处理
-         */
+            throw new SaveBlankDataException(null);
         }
-        $acs = $_POST['data'];
-        $this->set('flyTo', $flyTo);
-        $this->set('acs', $_POST['data']);
-        $this->getListForPullDown();
     }
 
     private function getListForPullDown ()

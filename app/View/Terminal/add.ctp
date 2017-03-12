@@ -77,7 +77,7 @@ if (isset($flyTo)) {
     /**
      * TODO: No hard-coding
      */
-    $popTtl = '保存失败';
+    $popTtl = '出错啦';
     $popMsg = null;
     if ($this->Form->isFieldError('Terminal.abbreviation')) {
         $popMsg .= $this->Form->error('Terminal.abbreviation') . $this->Tag->br();
@@ -90,7 +90,7 @@ if (isset($flyTo)) {
     }
     
     if (empty($popMsg)) {
-        $popTtl = '保存成功';
+        $popTtl = '搞定啦';
         $popMsg = '航站楼' . $_POST['data']['Terminal']['cname'] . '保存成功';
     }
     echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);

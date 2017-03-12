@@ -19,26 +19,26 @@ echo $this->Form->create ( "", array (
 echo $this->Form->inputs ( array (
 		'Airport.id' => array (
 				'type' => 'hidden',
-				'value' => $acs ['Airport'] ['id'] 
+				'value' => $data ['Airport'] ['id'] 
 		),
 		'Airport.icao_code' => array (
 				'label' => 'ICAO CODE',
-				'value' => $acs ['Airport'] ['icao_code'],
+				'value' => $data ['Airport'] ['icao_code'],
 				'class' => 'u-ipt' 
 		),
 		'Airport.iata_code' => array (
 				'label' => 'IATA CODE',
-				'value' => $acs ['Airport'] ['iata_code'],
+				'value' => $data ['Airport'] ['iata_code'],
 				'class' => 'u-ipt' 
 		),
 		'Airport.cname' => array (
 				'label' => '中文商号',
-				'value' => $acs ['Airport'] ['cname'],
+				'value' => $data ['Airport'] ['cname'],
 				'class' => 'u-ipt' 
 		),
 		'Airport.ename' => array (
 				'label' => '英文商号',
-				'value' => $acs ['Airport'] ['ename'],
+				'value' => $data ['Airport'] ['ename'],
 				'class' => 'u-ipt' 
 		),
 		'Airport.country_id' => array (
@@ -46,22 +46,22 @@ echo $this->Form->inputs ( array (
 				'type' => 'select',
 				'multiple' => false,
 				'options' => $Country,
-				'selected' => $acs ['Airport'] ['country_id'],
+				'selected' => $data ['Airport'] ['country_id'],
 				'class' => 'u-pld' 
 		),
 		'Airport.zipcode' => array (
 				'label' => '邮政编码',
-				'value' => $acs ['Airport'] ['zipcode'],
+				'value' => $data ['Airport'] ['zipcode'],
 				'class' => 'u-ipt' 
 		),
 		'Airport.address' => array (
 				'label' => '地址',
-				'value' => $acs ['Airport'] ['address'],
+				'value' => $data ['Airport'] ['address'],
 				'class' => 'u-ipt' 
 		),
 		'Airport.runway' => array (
 				'label' => '跑道数',
-				'value' => $acs ['Airport'] ['runway'],
+				'value' => $data ['Airport'] ['runway'],
 				'class' => 'u-ipt' 
 		) 
 )
@@ -92,7 +92,7 @@ if (isset ( $flyTo )) {
 	/**
 	 * TODO: No hard-coding
 	 */
-	$popTtl = '保存失败';
+	$popTtl = '出错啦';
 	$popMsg = null;
 	if ($this->Form->isFieldError ( 'Airport.icao_code' )) {
 		$popMsg .= $this->Form->error ( 'Airport.icao_code' ) . $this->Tag->br ();
@@ -120,7 +120,7 @@ if (isset ( $flyTo )) {
 	}
 	
 	if (empty ( $popMsg )) {
-		$popTtl = '保存成功';
+		$popTtl = '搞定啦';
 		$popMsg = '机场' . $_POST ['data'] ['Airport'] ['cname'] . '保存成功';
 	}
 	echo $this->Tag->popup ( $popTtl, $popMsg, "", $flyTo );

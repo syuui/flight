@@ -250,7 +250,7 @@ class Aircraft extends Model {
 		$cs = $this->find('all', array('fields'=>array('Aircraft.id', 'Aircraft.model')));
 		$cl = array ();
 		for ($i = 0; $i < count($cs); $i++) {
-			$cl[$cs[$i]['Aircraft']['id']] = $cs[$i]['Aircraft']['model'];
+			$cl["{$cs[$i]['Aircraft']['id']}"] = $cs[$i]['Aircraft']['model'];
 		}
 		return $cl;
 	}

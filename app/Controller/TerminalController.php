@@ -62,85 +62,54 @@ class TerminalController extends AppController
 
     public function index ()
     {
-        $this->Message->saveLog('IC0001');
-        
-        $this->set('acs', $this->Terminal->find('all'));
-        
-        $this->Message->saveLog('IC0002');
+        $this->set('data', $this->Terminal->find('all'));
     }
 
     public function add ()
     {
-        $this->Message->saveLog('IC0001');
-        
         $this->getListForPullDown();
-        
-        $this->Message->saveLog('IC0002');
     }
 
     public function del ($id)
     {
-        $this->Message->saveLog('IC0001');
-        
         if (isset($id)) {
-            $this->Message->saveLog('IC0103', 
-                    array(
-                            $id
-                    ));
             $this->Terminal->delete($id);
             $this->redirect('/Terminal');
+        } else {
+            throw new NotFoundException();
         }
-        
-        $this->Message->saveLog('IC0002');
     }
 
     public function edit ($id)
     {
-        $this->Message->saveLog('IC0001');
-        
         if (isset($id)) {
-            $this->set('acs', $this->Terminal->findById($id));
+            $this->set('data', $this->Terminal->findById($id));
+            $this->getListForPullDown();
         } else {
-        /**
-         * TODO: 例外处理
-         */
+            throw new NotFoundException();
         }
-        $this->getListForPullDown();
-        $this->Message->saveLog('IC0002');
     }
 
     public function save ()
     {
-        $this->Message->saveLog('IC0001');
-        if (isset($_POST['data']['Terminal']['id'])) {
+        if (isset($this->data['Terminal']['id'])) {
             $this->view = 'edit';
         } else {
             $this->view = 'add';
         }
         
         if (isset($_POST['_method'])) {
-            if ($this->Terminal->save($_POST['data'])) {
-                $this->Message->saveLog('IC0102', 
-                        array(
-                                $_POST['data']['Terminal']['cname']
-                        ));
+            if ($this->Terminal->save($this->data)) {
                 $flyTo = '/Terminal';
             } else {
-                $this->Message->saveLog('IC0104', 
-                        array(
-                                $_POST['data']['Terminal']['cname']
-                        ));
                 $flyTo = '';
             }
+            $data = $this->data;
+            $this->set(compact('flyTo', 'data'));
+            $this->getListForPullDown();
         } else {
-        /**
-         * TODO: 例外处理
-         */
+            throw new SaveBlankDataException(null);
         }
-        $acs = $_POST['data'];
-        $this->set(compact('flyTo', 'Airports', 'acs'));
-        $this->getListForPullDown();
-        $this->Message->saveLog('IC0002');
     }
 
     private function getListForPullDown ()

@@ -62,78 +62,56 @@ class RegisterController extends AppController
 
     public function index ()
     {
-        $this->Message->saveLog('IC0001');
-        
-        $this->set('acs', $this->Register->find('all'));
-        
-        $this->Message->saveLog('IC0002');
+        $this->set('data', $this->Register->find('all'));
     }
 
     public function add ()
     {
-        $this->Message->saveLog('IC0001');
         $this->getListForPullDown();
-        $this->Message->saveLog('IC0002');
     }
 
     public function del ($id)
     {
-        $this->Message->saveLog('IC0001');
-        
         if (isset($id)) {
-            $this->Message->saveLog('IC0103', 
-                    array(
-                            $id
-                    ));
             $this->Register->delete($id);
             $this->redirect('/Register');
+        } else {
+            throw new NotFoundException();
         }
-        
-        $this->Message->saveLog('IC0002');
     }
 
     public function edit ($id)
     {
-        $this->Message->saveLog('IC0001');
-        
         if (isset($id)) {
-            $this->set('acs', $this->Register->findById($id));
+            $this->set('data', $this->Register->findById($id));
+            $this->getListForPullDown();
         } else {
-        /**
-         * TODO: 例外处理
-         */
+            throw new NotFoundException();
         }
-        
-        $this->getListForPullDown();
         $this->Message->saveLog('IC0002');
     }
 
     public function save ()
     {
-        $this->Message->saveLog('IC0001');
-        
-        if (isset($_POST['data']['Register']['id'])) {
-            $this->view('edit');
+        if (isset($this->data['Register']['id'])) {
+            $this->view = 'edit';
         } else {
-            $this->view('add');
+            $this->view = 'add';
         }
         
         if (isset($_POST['_method'])) {
-            if ($this->Register->save($_POST['data'])) {
+            if ($this->Register->save($this->data)) {
                 $flyTo = '/Register';
             } else {
                 $flyTo = '';
             }
+            
+            $data = $this->data;
+            $this->set(compact('flyTo', 'data'));
+            $this->getListForPullDown();
         } else {
-        /**
-         * TODO: 例外处理
-         */
+            throw new SaveBlankDataException(null);
         }
-        
-        $acs = $_POST['data'];
-        $this->set(compact('flyTo', 'Registers', 'acs'));
-        $this->getListForPullDown();
-        $this->Message->saveLog('IC0002');
     }
 
     private function getListForPullDown ()

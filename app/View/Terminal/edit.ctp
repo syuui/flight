@@ -22,29 +22,29 @@ echo $this->Form->inputs(
         array(
                 'Terminal.id' => array(
                         'type' => 'hidden',
-                        'value' => $acs['Terminal']['id']
+                        'value' => $data['Terminal']['id']
                 ),
                 'Terminal.airport_id' => array(
                         'label' => '机场',
                         'type' => 'select',
                         'multiple' => false,
                         'options' => $Airport,
-                        'selected' => $acs['Terminal']['airport_id'],
+                        'selected' => $data['Terminal']['airport_id'],
                         'class' => 'u-pld'
                 ),
                 'Terminal.abbreviation' => array(
                         'label' => 'IATA CODE',
-                        'value' => $acs['Terminal']['abbreviation'],
+                        'value' => $data['Terminal']['abbreviation'],
                         'class' => 'u-ipt'
                 ),
                 'Terminal.cname' => array(
                         'label' => '中文商号',
-                        'value' => $acs['Terminal']['cname'],
+                        'value' => $data['Terminal']['cname'],
                         'class' => 'u-ipt'
                 ),
                 'Terminal.ename' => array(
                         'label' => '英文商号',
-                        'value' => $acs['Terminal']['ename'],
+                        'value' => $data['Terminal']['ename'],
                         'class' => 'u-ipt'
                 )
         ), null, array(
@@ -77,7 +77,7 @@ if (isset($flyTo)) {
     /**
      * TODO: No hard-coding
      */
-    $popTtl = '保存失败';
+    $popTtl = '出错啦';
     $popMsg = null;
     if ($this->Form->isFieldError('Terminal.abbreviation')) {
         $popMsg .= $this->Form->error('Terminal.abbreviation') . $this->Tag->br();
@@ -90,7 +90,7 @@ if (isset($flyTo)) {
     }
     
     if (empty($popMsg)) {
-        $popTtl = '保存成功';
+        $popTtl = '搞定啦';
         $popMsg = '航站楼' . $_POST['data']['Terminal']['cname'] . '保存成功';
     }
     echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);

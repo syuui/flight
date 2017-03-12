@@ -25,7 +25,7 @@ echo $this->Html->tableHeaders(array (
 		'备注',
 		'&nbsp;'
 ));
-foreach ($acs as $ln) {
+foreach ($data as $ln) {
 	echo $this->Html->tableCells(array (
 		$ln['Flight']['flight_name'],
 		$ln['D_Terminal']['cname'],		
