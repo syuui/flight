@@ -1,7 +1,7 @@
-<div class="g-sd">
-	<div class="m-list">
-		<ul>
-			<li><?php
+
+<div class="m-list">
+	<ul>
+		<li><?php
 echo $this->Html->link(
         $this->Html->image('company.jpg', 
                 array(
@@ -14,7 +14,7 @@ echo $this->Html->link(
                 'escape' => false
         ));
 ?></li>
-			<li><?php
+		<li><?php
 
 echo $this->Html->link(
         $this->Html->image('flight.jpg', 
@@ -28,7 +28,7 @@ echo $this->Html->link(
                 'escape' => false
         ));
 ?></li>
-			<li><?php
+		<li><?php
 
 echo $this->Html->link(
         $this->Html->image('airport.jpg', 
@@ -42,7 +42,7 @@ echo $this->Html->link(
                 'escape' => false
         ));
 ?></li>
-			<li><?php
+		<li><?php
 
 echo $this->Html->link(
         $this->Html->image('terminal.jpg', 
@@ -56,7 +56,7 @@ echo $this->Html->link(
                 'escape' => false
         ));
 ?></li>
-			<li><?php
+		<li><?php
 
 echo $this->Html->link(
         $this->Html->image('aircraft.jpg', 
@@ -70,7 +70,7 @@ echo $this->Html->link(
                 'escape' => false
         ));
 ?></li>
-			<li><?php
+		<li><?php
 
 echo $this->Html->link(
         $this->Html->image('register.jpg', 
@@ -84,6 +84,5 @@ echo $this->Html->link(
                 'escape' => false
         ));
 ?></li>
-		</ul>
-	</div>
+	</ul>
 </div>

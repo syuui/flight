@@ -13,28 +13,32 @@ echo $this->Html->meta('favicon.ico', '/favicon.ico',
 echo $this->Html->css(
         array(
                 'reset',
-                'function',
                 'layout',
                 'controller',
                 'custom'
         )) . PHP_EOL;
 echo $this->fetch('javascript');
 ?>
-<title><?php	echo $title_for_layout;	?></title>
+	<title><?php	echo $title_for_layout;	?></title>
 </head>
 <body>
-	<!--	网站头	-->
-<?php	echo $this->Element('logo');?>
+<!--	网站头	-->
+<div class="g-hd">
+<?php	echo $this->Element('head');?>
 <!--	/网站头	-->
+</div>
 
-	<!--	左侧菜单栏	-->
+<!--	左侧菜单栏	-->
+<div class="g-sd">
 <?php 	echo $this->Element('leftmenu');?>
+</div>
 <!--	/左侧菜单栏	-->
 
-	<!--	正文	-->
-	<div class="g-mn">
+<!--	正文	-->
+<div class="g-mn">
 <?php echo $this->fetch('content');	?>
 </div>
-	<!--	/正文	-->
+<!--	/正文	-->
+
 </body>
 </html>

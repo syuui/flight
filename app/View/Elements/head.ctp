@@ -1,7 +1,6 @@
-<div class="g-hd">
 <?php
 echo $this->Html->link(
-        $this->Html->image('logo.jpg', 
+        $this->Html->image('flight.png', 
                 array(
                         'alt' => 'LOGO'
                 )), 
@@ -12,4 +11,4 @@ echo $this->Html->link(
         ), array(
                 'escape' => false
         ));
-?></div>
+?>

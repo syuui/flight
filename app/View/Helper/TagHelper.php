@@ -13,14 +13,14 @@ class TagHelper extends AppHelper
 
     public function popup ($title = null, $message = null, $hint = null, $flyTo = null)
     {
-        $flyTo = empty($flyTo) ? '/' : $flyTo;
-        
         $val = PHP_EOL;
         $val .= '<script language="JavaScript">';
         $val .= 'function removeLayer() {' . PHP_EOL .
                  '_lyr=document.getElementById(\'popup_win\');' . PHP_EOL .
                  '_lyr.parentNode.removeChild(_lyr);' . PHP_EOL;
-        $val .= 'location.href=\'' . $flyTo . '\';' . PHP_EOL;
+        if (! empty($flyTo)) {
+            $val .= 'location.href=\'' . $flyTo . '\';' . PHP_EOL;
+        }
         $val .= '}</script>' . PHP_EOL;
         $val .= '<div class="m-layer z-show" id="popup_win">';
         $val .= '<table><tbody><tr><td>';
