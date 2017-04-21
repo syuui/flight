@@ -33,23 +33,23 @@ echo $this->Form->inputs(
                         'class' => 'u-pld'
                 ),
                 'Terminal.abbreviation' => array(
-                        'label' => 'IATA CODE',
+                        'label' => '简称',
                         'value' => $data['Terminal']['abbreviation'],
                         'class' => 'u-ipt'
                 ),
                 'Terminal.cname' => array(
-                        'label' => '中文商号',
+                        'label' => '中文名称',
                         'value' => $data['Terminal']['cname'],
                         'class' => 'u-ipt'
                 ),
                 'Terminal.ename' => array(
-                        'label' => '英文商号',
+                        'label' => '英文名称',
                         'value' => $data['Terminal']['ename'],
                         'class' => 'u-ipt'
                 )
         ), null, array(
                 'div' => null,
-                'legend' => '航空公司信息编辑'
+                'legend' => '航站楼信息编辑'
         ));
 
 echo $this->Form->button('重置', 
