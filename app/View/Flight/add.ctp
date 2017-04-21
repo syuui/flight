@@ -16,7 +16,7 @@ echo $this->Form->create("",
                 "onsubmit" => "",
                 "url" => array(
                         'controller' => 'Flight',
-                        'action' => 'add'
+                        'action' => 'save'
                 )
         ));
 
