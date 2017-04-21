@@ -13,7 +13,7 @@ echo $this->Form->create("",
                 "onsubmit" => "",
                 "url" => array(
                         'controller' => 'Register',
-                        'action' => 'add'
+                        'action' => 'save'
                 )
         ));
 
