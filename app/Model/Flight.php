@@ -95,7 +95,7 @@ class Flight extends Model {
 	var $validate = array (
 		'company_id' => array (
 			'alphaNumeric3' => array (
-				'rule' => '/^[1-9]?$/',
+				'rule' => '/^[1-9]+$/',
 				'message' => 'company_id只能由数字组成，且长度必须大于一位。',
 				'required' => true,
 				'allowEmpty' => false
@@ -109,7 +109,7 @@ class Flight extends Model {
 		),
 		'departure_terminal_id' => array (
 			'alphaNumeric3' => array (
-				'rule' => '/^[1-9]?/',
+				'rule' => '/^[1-9]+/',
 				'message' => 'departure_terminal_id只能由数字组成，且长度必须大于一位。',
 				'required' => true,
 				'allowEmpty' => false
@@ -123,7 +123,7 @@ class Flight extends Model {
 		),
 		'arrival_terminal_id' => array (
 			'alphaNumeric3' => array (
-				'rule' => '/^[1-9]?/',
+				'rule' => '/^[1-9]+/',
 				'message' => 'arrival_terminal_id只能由数字组成，且长度必须大于一位。',
 				'required' => true,
 				'allowEmpty' => false
@@ -131,7 +131,7 @@ class Flight extends Model {
 		),
 		'register_id' => array (
 			'alphaNumeric3' => array (
-				'rule' => '/^[1-9]?/',
+				'rule' => '/^[1-9]+/',
 				'message' => 'register_id只能由数字组成，且长度必须大于一位。',
 				'required' => true,
 				'allowEmpty' => false
