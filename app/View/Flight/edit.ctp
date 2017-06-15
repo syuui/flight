@@ -7,6 +7,7 @@
  * @package       app.View.Company
  * @since         CakePHP(tm) v 0.10.0.1076
  */
+echo $this->Html->script('flight_edit');
 echo $this->Form->create("", 
         array(
                 "type" => "POST",
@@ -39,7 +40,10 @@ echo $this->Form->inputs(
                         'value' => $data['Flight']['departure_time'],
                         'class' => 'u-dtm',
                         'dateFormat' => 'Y-M-D H:I',
-                        'timeFormat' => '24'
+                        'timeFormat' => '24',
+                        'year' => array(
+                                'onclick' => 'set_year(options[selectedIndex].value)'
+                        )
                 ),
                 'Flight.real_departure_time' => array(
                         'label' => '实际出发日时',
@@ -104,9 +108,11 @@ echo $this->Form->inputs(
                 'Flight.memo' => array(
                         'label' => '备注',
                         'class' => 'u-txa',
-                        'type' => 'textarea'
+                        'type' => 'textarea',
+                        'value' => $data['Flight']['memo']
                 )
-        ), null, array(
+        ), null, 
+        array(
                 'div' => null,
                 'legend' => '航班编辑'
         ));
@@ -168,3 +174,5 @@ if (isset($flyTo) && ! empty($flyTo)) {
     }
     echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);
 }
+
+echo $this->Html->scriptBlock("set_onchange();");

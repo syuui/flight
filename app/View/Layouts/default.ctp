@@ -17,28 +17,31 @@ echo $this->Html->css(
                 'controller',
                 'custom'
         )) . PHP_EOL;
-echo $this->fetch('javascript');
+echo $this->Html->script([
+        'jquery-3.2.1.min',
+        'function'
+]);
 ?>
 	<title><?php	echo $title_for_layout;	?></title>
 </head>
 <body>
-<!--	网站头	-->
-<div class="g-hd">
+	<!--	网站头	-->
+	<div class="g-hd">
 <?php	echo $this->Element('head');?>
 <!--	/网站头	-->
-</div>
+	</div>
 
-<!--	左侧菜单栏	-->
-<div class="g-sd">
+	<!--	左侧菜单栏	-->
+	<div class="g-sd">
 <?php 	echo $this->Element('leftmenu');?>
 </div>
-<!--	/左侧菜单栏	-->
+	<!--	/左侧菜单栏	-->
 
-<!--	正文	-->
-<div class="g-mn">
+	<!--	正文	-->
+	<div class="g-mn">
 <?php echo $this->fetch('content');	?>
 </div>
-<!--	/正文	-->
+	<!--	/正文	-->
 
 </body>
 </html>
