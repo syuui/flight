@@ -57,7 +57,7 @@ class Terminal extends Model
                     'foreignKey' => 'airport_id'
             )
     );
-    
+
     /**
      * 虚字段
      *
@@ -65,7 +65,8 @@ class Terminal extends Model
      *      使用虚字段 departure_date 表示航班的日期
      */
     public $virtualFields = array(
-           // 'ter_cname' => 'CONCAT(Airport.cname, Terminal.cname)'
+           // 'D_tname' => 'CONCAT(D_Airport.cname, D_Terminal.cname)',
+           // 'A_tname' => 'CONCAT(A_Airport.cname, A_Terminal.cname)'
     );
 
     /**
@@ -103,8 +104,7 @@ class Terminal extends Model
                     'message' => '航站楼中文名称最大32字节。',
                     'required' => false,
                     'allowEmpty' => true
-            )
-            ,
+            ),
             'ename' => array(
                     'rule' => array(
                             'between',
@@ -115,7 +115,6 @@ class Terminal extends Model
                     'required' => false,
                     'allowEmpty' => true
             )
-            
     );
 
     /**

@@ -66,7 +66,35 @@ class FlightController extends AppController
 
     public function index ()
     {
-        $this->set('data', $this->Flight->find('all'));
+        $options['joins'] = array(
+                array(
+                        'table' => 'airports',
+                        'alias' => 'D_Airport',
+                        'type' => 'LEFT',
+                        'conditions' => array(
+                                'D_Airport.id = D_Terminal.airport_id'
+                        )
+                ),
+                array(
+                        'table' => 'airports',
+                        'alias' => 'A_Airport',
+                        'type' => 'LEFT',
+                        'conditions' => array(
+                                'A_Airport.id = A_Terminal.airport_id'
+                        )
+                )
+        );
+        $options['fields'] = array(
+                'Flight.*',
+                'D_Terminal.*',
+                'A_Terminal.*',
+                'CONCAT(D_Airport.cname,D_Terminal.cname) AS dcname',
+                'CONCAT(A_Airport.cname,A_Terminal.cname) AS acname'
+        );
+        
+        $d = $this->Flight->find('all', $options);
+        
+        $this->set('data', $d);
     }
 
     public function add ()
