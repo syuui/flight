@@ -21,8 +21,9 @@ echo $this->Html->tableHeaders(
                 '出发日时',
                 '到着地',
                 '到着日时',
+                '注册号',
                 '座位号',
-                '餐食',
+                //'餐食',
                 '备注',
                 '&nbsp;'
         ));
@@ -35,8 +36,9 @@ foreach ($data as $ln) {
                     $ln['Flight']['departure_time'],
                     $ln[0]['acname'],
                     $ln['Flight']['arrival_time'],
+                    $ln['Register']['register_no'],
                     $ln['Flight']['seat_no'],
-                    $ln['Flight']['meal'],
+                  //  $ln['Flight']['meal'],
                     $ln['Flight']['memo'],
                     $this->Form->button('编辑', 
                             array(

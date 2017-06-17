@@ -86,6 +86,7 @@ class FlightController extends AppController
         );
         $options['fields'] = array(
                 'Flight.*',
+                'Register.register_no',
                 'D_Terminal.*',
                 'A_Terminal.*',
                 'CONCAT(D_Airport.cname,D_Terminal.cname) AS dcname',
@@ -141,6 +142,51 @@ class FlightController extends AppController
             $this->getListForPullDown();
         } else {
             throw new SaveBlankDataException(null);
+        }
+    }
+
+    public function search ()
+    {
+        if (! empty($this->data)) {
+            $k = $this->data['Flight']['keyword'];
+            $options['joins'] = array(
+                    array(
+                            'table' => 'airports',
+                            'alias' => 'D_Airport',
+                            'type' => 'LEFT',
+                            'conditions' => array(
+                                    'D_Airport.id = D_Terminal.airport_id'
+                            )
+                    ),
+                    array(
+                            'table' => 'airports',
+                            'alias' => 'A_Airport',
+                            'type' => 'LEFT',
+                            'conditions' => array(
+                                    'A_Airport.id = A_Terminal.airport_id'
+                            )
+                    )
+            );
+            $options['fields'] = array(
+                    'Flight.*',
+                    'Register.register_no',
+                    'D_Terminal.*',
+                    'A_Terminal.*',
+                    'CONCAT(D_Airport.cname,D_Terminal.cname) AS dcname',
+                    'CONCAT(A_Airport.cname,A_Terminal.cname) AS acname'
+            );
+            $options['conditions'] = [
+                    'OR' => [
+                            'Flight.flight_number LIKE' => "%$k%",
+                            'D_Terminal.cname LIKE' => "%$k%",
+                            'A_Terminal.cname LIKE' => "%$k%",
+                            'D_Airport.cname LIKE' => "%$k%",
+                            'A_Airport.cname LIKE' => "%$k%"
+                    ]
+            ];
+            $d = $this->Flight->find('all', $options);
+            $this->set('data', $d);
+            $this->render('index');
         }
     }
 

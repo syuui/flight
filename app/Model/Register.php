@@ -61,6 +61,13 @@ class Register extends Model
             )
     );
 
+    public $hasOne = [
+        'Register' => [
+                'className' => 'Register',
+                'foreignKey' => 'register_id'
+        ]      
+    ];
+    
     /**
      * 字段验证规则
      *
@@ -88,7 +95,9 @@ class Register extends Model
      */
     public function registerForList ()
     {
-        $cs = $this->find('all');
+        $cs = $this->find('all', [
+                'order' => '`Register`.`id` DESC'
+        ]);
         $cl = array();
         for ($i = 0; $i < count($cs); $i ++) {
             $cl[$cs[$i]['Register']['id']] = $cs[$i]['Register']['register_no'] .
