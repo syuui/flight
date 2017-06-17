@@ -61,13 +61,6 @@ class Register extends Model
             )
     );
 
-    public $hasOne = [
-        'Register' => [
-                'className' => 'Register',
-                'foreignKey' => 'register_id'
-        ]      
-    ];
-    
     /**
      * 字段验证规则
      *

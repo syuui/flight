@@ -7,8 +7,12 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  */
 echo $this->Form->create();
-echo $this->Form->input('keyword', [
-        'type' => 'text'
+echo $this->Form->input('keyword', 
+        [
+                'type' => 'text',
+                'class' => 'u-ipt'
+        ]);
+echo $this->Form->submit('Search', [
+        'class' => 'u-btn'
 ]);
-echo $this->Form->submit('Search');
 echo $this->Form->end();
