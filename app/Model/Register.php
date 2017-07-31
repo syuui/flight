@@ -71,8 +71,9 @@ class Register extends Model
     var $validate = array(
             'register_no' => array(
                     'alphaNumeric3' => array(
-                            'rule' => '/^[A-Z]{1,2}-[A-Z0-9]{1,4}$/',
-                            'message' => '注册号只能由一至二位大写英文字母，接横线，再接一至四位大写英文字母或数字组成。',
+                            'rule' => '/^[A-Z0-9]{1,3}-?[A-Z0-9]{1,5}$/',
+                            //'rule' => '/^[A-Z]{1,2}-[A-Z0-9]{1,4}$/',
+                            'message' => '注册号格式错误',
                             'required' => true,
                             'allowEmpty' => false
                     )
