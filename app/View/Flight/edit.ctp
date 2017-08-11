@@ -8,6 +8,7 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  */
 echo $this->Html->script('flight_edit');
+
 echo $this->Form->create("", 
         array(
                 "type" => "POST",

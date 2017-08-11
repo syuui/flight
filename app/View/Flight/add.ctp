@@ -6,6 +6,7 @@
  * @package       app.View.Pages
  * @since         CakePHP(tm) v 0.10.0.1076
  */
+echo $this->Html->script('flight_edit');
 
 if (! isset($Countries))
     $Countries = array();
@@ -96,7 +97,8 @@ echo $this->Form->inputs(
                         'class' => 'u-txa',
                         'type' => 'textarea'
                 )
-        ), null, array(
+        ), null, 
+        array(
                 'div' => null,
                 'legend' => '航班信息追加'
         ));
@@ -158,3 +160,5 @@ if (isset($flyTo)) {
     }
     echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);
 }
+
+echo $this->Html->scriptBlock("set_onchange();");
