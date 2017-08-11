@@ -7,6 +7,8 @@
  * @package       app.View.Pages
  * @since         CakePHP(tm) v 0.10.0.1076
  */
+echo $this->Html->script('register_edit');
+
 echo $this->Form->create("", 
         array(
                 "type" => "POST",
@@ -16,12 +18,18 @@ echo $this->Form->create("",
                         'action' => 'save'
                 )
         ));
+echo $this->Html->div('waiting', $this->Html->image('waiting.gif'), 
+        [
+                'id' => 'waiting'
+        ]);
 
 echo $this->Form->inputs(
         array(
                 'Register.register_no' => array(
                         'label' => '注册号',
-                        'class' => 'u-ipt'
+                        'class' => 'u-ipt',
+                        'onfocus' => 'gotFocus();',
+                        'onblur' => 'lostFocus();'
                 ),
                 'Register.aircraft_id' => array(
                         'label' => '机型',
@@ -68,8 +76,17 @@ echo $this->Form->button('返回',
                 'class' => 'u-btn',
                 'onclick' => "location.href='/Register';"
         ));
-
 echo $this->Form->end();
+
+echo $this->Html->div('hint', '', [
+        'id' => 'HintRegModel'
+]);
+echo $this->Html->div('hint', '', [
+        'id' => 'HintRegCompany'
+]);
+echo $this->Html->div('hint', '', [
+        'id' => 'HintRegDate'
+]);
 
 if (isset($flyTo)) {
     /**
@@ -87,3 +104,5 @@ if (isset($flyTo)) {
     }
     echo $this->Tag->popup($popTtl, $popMsg, "", $flyTo);
 }
+
+echo $this->Html->scriptBlock("$(\"#RegisterRegisterNo\").blur(getRegInfo)");

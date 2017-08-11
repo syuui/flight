@@ -17,6 +17,49 @@ class ARIComponent extends Object
     const URL = "http://www.xmyzl.com/?mod=search";
 
     /**
+     * initialize
+     *
+     * 此方法将在Controller的beforeFilter之前调用，此处无处理。
+     */
+    function initialize ()
+    {}
+
+    /**
+     * beforeRender
+     *
+     * 此方法将在Controller的Render之前调用，此处无处理。
+     */
+    function beforeRender ()
+    {}
+
+    /**
+     * beforeRender
+     *
+     * 此方法将在Controller的Redirect之前调用，此处无处理。
+     */
+    function beforeRedirect ()
+    {}
+
+    /**
+     * startup
+     *
+     * Component处理开始前的预处理。
+     */
+    function startup (& $controller)
+    {
+        $this->debugLevel = Configure::read('debug');
+        $this->_messages = parse_ini_file(INI_FILE_NAME);
+    }
+
+    /**
+     * startup
+     *
+     * Component处理结束后的收尾处理。
+     */
+    function shutdown ()
+    {}
+
+    /**
      *
      * @return string
      */
@@ -40,26 +83,26 @@ class ARIComponent extends Object
      */
     public function getRegisterInformation ($rid)
     {
-        $rlt = array();
+        $rlt = [];
         
         $pattern = '/^B-[0-9]{4}$/';
         if (is_string($rid) && 0 === preg_match($pattern, $rid)) {
             return $rlt;
         }
         
-        $data = array(
+        $data = [
                 'keyword' => $rid
-        );
+        ];
         $data = http_build_query($data);
         
-        $opts = array(
-                'http' => array(
+        $opts = [
+                'http' => [
                         'method' => 'POST',
                         'header' => "Content-type: application/x-www-form-urlencoded\r\n" .
                                  "Content-Length: " . strlen($data) . "\r\n",
                                 'content' => $data
-                )
-        );
+                ]
+        ];
         $ctx = stream_context_create($opts);
         $html = @file_get_contents(ARIComponent::URL, '', $ctx);
         

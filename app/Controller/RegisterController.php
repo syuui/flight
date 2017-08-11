@@ -36,29 +36,30 @@ class RegisterController extends AppController
      *
      * @var array
      */
-    public $uses = array(
+    public $uses = [
             'Register',
             'Aircraft',
             'Company'
-    );
+    ];
 
     /**
      * 此controller使用下列component
      *
      * @var array
      */
-    public $components = array(
-            'Message'
-    );
+    public $components = [
+            'Message',
+            'ARI'
+    ];
 
     /**
      * 此controller使用下列helper
      *
      * @var array
      */
-    public $helper = array(
+    public $helper = [
             'Tag'
-    );
+    ];
 
     public function index ()
     {
@@ -112,6 +113,18 @@ class RegisterController extends AppController
         } else {
             throw new SaveBlankDataException(null);
         }
+    }
+
+    /**
+     * Aircraft register number query webservice
+     *
+     * @param unknown $rid            
+     */
+    public function aircraftRegisterJson ($rid)
+    {
+        $this->layout = false;
+        $rlt = $this->ARI->getRegisterInformation($rid);
+        $this->set('ri', $rlt);
     }
 
     private function getListForPullDown ()
